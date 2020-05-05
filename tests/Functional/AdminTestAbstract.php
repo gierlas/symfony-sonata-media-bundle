@@ -22,10 +22,10 @@ abstract class AdminTestAbstract extends AbstractBaseFunctionTest
     {
         parent::setUp();
 
+        $this->loadFixtures([]);
+
         $this->client = $this->getAuthenticatedClient();
         $this->client->followRedirects();
-
-        $this->loadFixtures([]);
     }
 
     protected function verifyMediaImageIsGenerated()

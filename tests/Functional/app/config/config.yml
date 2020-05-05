@@ -17,6 +17,12 @@ framework:
         handler_id:  ~
     fragments:       ~
     http_method_override: true
+    cache:
+        pools:
+            doctrine.system_cache_pool:
+                adapter: cache.adapter.array
+            doctrine.result_cache_pool:
+                adapter: cache.adapter.array
 
 twig:
     debug:            '%kernel.debug%'
@@ -28,9 +34,15 @@ doctrine:
         path:     '%database_path%'
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
-        metadata_cache_driver: array
-        result_cache_driver: array
-        query_cache_driver: array
+        metadata_cache_driver:
+            type: pool
+            pool: doctrine.system_cache_pool
+        query_cache_driver:
+            type: pool
+            pool: doctrine.system_cache_pool
+        result_cache_driver:
+            type: pool
+            pool: doctrine.result_cache_pool
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
 

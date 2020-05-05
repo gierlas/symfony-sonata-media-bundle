@@ -33,6 +33,7 @@ class AppKernel extends Kernel
 
         if (in_array($this->getEnvironment(), ['test'], true)) {
             $bundles[] = new \Liip\FunctionalTestBundle\LiipFunctionalTestBundle();
+            $bundles[] = new \Liip\TestFixturesBundle\LiipTestFixturesBundle();
             $bundles[] = new \Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
         }
 

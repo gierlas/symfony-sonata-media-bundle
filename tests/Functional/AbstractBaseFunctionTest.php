@@ -3,6 +3,7 @@
 namespace MediaMonks\SonataMediaBundle\Tests\Functional;
 
 use Liip\FunctionalTestBundle\Test\WebTestCase;
+use Liip\TestFixturesBundle\Test\FixturesTrait;
 use MediaMonks\SonataMediaBundle\Tests\App\AppKernel;
 use Symfony\Component\DomCrawler\Form;
 use Symfony\Bundle\FrameworkBundle\Client;
@@ -10,6 +11,7 @@ use Symfony\Component\Finder\Finder;
 
 abstract class AbstractBaseFunctionTest extends WebTestCase
 {
+    use FixturesTrait;
 
     protected static function getKernelClass()
     {
@@ -94,7 +96,7 @@ abstract class AbstractBaseFunctionTest extends WebTestCase
      */
     protected function getAuthenticatedClient()
     {
-        return $this->makeClient(true);
+        return $this->makeAuthenticatedClient();
     }
 
     /**

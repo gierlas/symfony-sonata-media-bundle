@@ -7,7 +7,10 @@ framework:
         storage_id: session.storage.mock_file
 
 liip_functional_test:
-    cache_sqlite_db: true
     authentication:
         username: "admin"
         password: "admin"
+
+liip_test_fixtures:
+    cache_db:
+        sqlite: liip_functional_test.services_database_backup.sqlite

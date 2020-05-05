@@ -38,6 +38,7 @@ class ProviderPassTest extends AbstractCompilerPassTestCase
         }
 
         $provider = m::mock(Definition::class);
+        $provider->makePartial();
         $provider->shouldReceive('isLazy')->andReturn(false);
         $provider->shouldReceive('isSynthetic')->andReturn(false);
         $provider->shouldReceive('isPrivate')->andReturn(false);
